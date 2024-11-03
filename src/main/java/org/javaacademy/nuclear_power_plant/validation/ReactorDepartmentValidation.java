@@ -1,6 +1,5 @@
 package org.javaacademy.nuclear_power_plant.validation;
 
-import lombok.AllArgsConstructor;
 import lombok.experimental.UtilityClass;
 import org.javaacademy.nuclear_power_plant.entity.ReactorDepartment;
 import org.javaacademy.nuclear_power_plant.entity.ReactorDepartmentState;

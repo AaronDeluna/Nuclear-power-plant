@@ -1,9 +1,7 @@
 package org.javaacademy.nuclear_power_plant.entity;
 
-import jakarta.annotation.PreDestroy;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
 import org.springframework.stereotype.Component;

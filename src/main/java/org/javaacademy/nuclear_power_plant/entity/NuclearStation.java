@@ -1,6 +1,5 @@
 package org.javaacademy.nuclear_power_plant.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
