@@ -4,11 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
+import org.javaacademy.nuclear_power_plant.validation.ReactorDepartmentValidation;
 import org.springframework.stereotype.Component;
 
 import static org.javaacademy.nuclear_power_plant.entity.ReactorDepartmentState.NOT_WORK;
 import static org.javaacademy.nuclear_power_plant.entity.ReactorDepartmentState.WORK;
-import static org.javaacademy.nuclear_power_plant.validation.ReactorDepartmentValidation.*;
 
 /**
  * Реакторный цех.
@@ -24,8 +24,8 @@ public class ReactorDepartment {
     private ReactorDepartmentState reactorState = NOT_WORK;
 
     public int run() throws ReactorWorkException, NuclearFuelIsEmptyException {
-        validateLaunchCount(this);
-        validateStationStatus(reactorState, WORK, REACTOR_ALREADY_RUNNING_MESSAGE);
+        ReactorDepartmentValidation.validateLaunchCount(this);
+        ReactorDepartmentValidation.validateStationStatus(reactorState, WORK, REACTOR_ALREADY_RUNNING_MESSAGE);
 
         startLaunchesCount++;
         reactorState = WORK;
@@ -33,7 +33,7 @@ public class ReactorDepartment {
     }
 
     public void stop() throws ReactorWorkException {
-        validateStationStatus(reactorState, NOT_WORK, REACTOR_ALREADY_STOPPED_MESSAGE);
+        ReactorDepartmentValidation.validateStationStatus(reactorState, NOT_WORK, REACTOR_ALREADY_STOPPED_MESSAGE);
         reactorState = NOT_WORK;
     }
 }
