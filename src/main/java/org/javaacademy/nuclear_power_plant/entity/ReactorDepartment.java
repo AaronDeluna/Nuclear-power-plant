@@ -23,17 +23,38 @@ public class ReactorDepartment {
     private int startLaunchesCount;
     private ReactorDepartmentState reactorState = NOT_WORK;
 
+    /**
+     * Запускает реактор, выполняет валидацию состояния и увеличивает количество запусков.
+     * Возвращает количество выработанной энергии в киловатт-часах.
+     *
+     * @throws ReactorWorkException если реактор уже работает.
+     * @throws NuclearFuelIsEmptyException если топливо в реакторе закончилось.
+     * @return количество выработанных киловатт-часов.
+     */
     public int run() throws ReactorWorkException, NuclearFuelIsEmptyException {
         ReactorDepartmentValidation.validateLaunchCount(this);
         ReactorDepartmentValidation.validateStationStatus(reactorState, WORK, REACTOR_ALREADY_RUNNING_MESSAGE);
 
-        startLaunchesCount++;
+        addStartLaunchesCount();
         reactorState = WORK;
         return KILOWATT_HOUR;
     }
 
+    /**
+     * Останавливает реактор, выполняет валидацию состояния.
+     * Если реактор уже остановлен, выбрасывается исключение.
+     *
+     * @throws ReactorWorkException если реактор уже остановлен.
+     */
     public void stop() throws ReactorWorkException {
         ReactorDepartmentValidation.validateStationStatus(reactorState, NOT_WORK, REACTOR_ALREADY_STOPPED_MESSAGE);
         reactorState = NOT_WORK;
+    }
+
+    /**
+     * Увеличивает счетчик запусков на 1.
+     */
+    public void addStartLaunchesCount() {
+        startLaunchesCount++;
     }
 }
