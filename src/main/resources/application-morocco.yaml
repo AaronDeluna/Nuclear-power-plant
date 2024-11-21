@@ -1,0 +1,5 @@
+app:
+  country: Morocco
+  costPerKilowatt: 5
+  increasedRate: 6
+  currency: AED

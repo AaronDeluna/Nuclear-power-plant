@@ -1,10 +1,10 @@
 package org.javaacademy.nuclear_power_plant.entity;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
-import org.javaacademy.nuclear_power_plant.validation.ReactorDepartmentValidation;
 import org.springframework.stereotype.Component;
 
 import static org.javaacademy.nuclear_power_plant.entity.ReactorDepartmentState.NOT_WORK;
@@ -16,10 +16,13 @@ import static org.javaacademy.nuclear_power_plant.entity.ReactorDepartmentState.
 @Getter
 @Setter
 @Component
+@RequiredArgsConstructor
 public class ReactorDepartment {
     private static final String REACTOR_ALREADY_RUNNING_MESSAGE = "Реактор уже работает";
     private static final String REACTOR_ALREADY_STOPPED_MESSAGE = "Реактор уже выключен";
+    private static final int ERROR_TRIGGER_INTERVAL = 100;
     private static final int KILOWATT_HOUR = 10_000_000;
+    private final SecurityDepartment securityDepartment;
     private int startLaunchesCount;
     private ReactorDepartmentState reactorState = NOT_WORK;
 
@@ -32,10 +35,16 @@ public class ReactorDepartment {
      * @return количество выработанных киловатт-часов.
      */
     public int run() throws ReactorWorkException, NuclearFuelIsEmptyException {
-        ReactorDepartmentValidation.validateLaunchCount(this);
-        ReactorDepartmentValidation.validateStationStatus(reactorState, WORK, REACTOR_ALREADY_RUNNING_MESSAGE);
+        if (WORK == reactorState) {
+            throw new ReactorWorkException(REACTOR_ALREADY_RUNNING_MESSAGE);
+        }
 
         addStartLaunchesCount();
+        if (startLaunchesCount % ERROR_TRIGGER_INTERVAL == 0) {
+            securityDepartment.addAccident();
+            throw new NuclearFuelIsEmptyException();
+        }
+
         reactorState = WORK;
         return KILOWATT_HOUR;
     }
@@ -47,7 +56,9 @@ public class ReactorDepartment {
      * @throws ReactorWorkException если реактор уже остановлен.
      */
     public void stop() throws ReactorWorkException {
-        ReactorDepartmentValidation.validateStationStatus(reactorState, NOT_WORK, REACTOR_ALREADY_STOPPED_MESSAGE);
+        if (NOT_WORK == reactorState) {
+            throw new ReactorWorkException(REACTOR_ALREADY_STOPPED_MESSAGE);
+        }
         reactorState = NOT_WORK;
     }
 
