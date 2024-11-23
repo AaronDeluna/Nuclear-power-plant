@@ -2,7 +2,7 @@ package org.javaacademy.nuclear_power_plant.config;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.javaacademy.nuclear_power_plant.entity.Country;
+import org.javaacademy.nuclear_power_plant.service.Country;
 import org.javaacademy.nuclear_power_plant.service.Currency;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

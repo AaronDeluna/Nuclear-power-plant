@@ -1,4 +1,4 @@
-package org.javaacademy.nuclear_power_plant.entity;
+package org.javaacademy.nuclear_power_plant.service;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,8 +7,8 @@ import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
 import org.springframework.stereotype.Component;
 
-import static org.javaacademy.nuclear_power_plant.entity.ReactorDepartmentState.NOT_WORK;
-import static org.javaacademy.nuclear_power_plant.entity.ReactorDepartmentState.WORK;
+import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState.NOT_WORK;
+import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState.WORK;
 
 /**
  * Реакторный цех.

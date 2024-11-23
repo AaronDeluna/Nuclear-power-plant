@@ -1,6 +1,6 @@
 package org.javaacademy.nuclear_power_plant;
 
-import org.javaacademy.nuclear_power_plant.entity.NuclearStation;
+import org.javaacademy.nuclear_power_plant.service.NuclearStation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

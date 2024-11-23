@@ -5,6 +5,5 @@ import lombok.Getter;
 @Getter
 public enum Currency {
     EURO,
-    AED,
-    ;
+    AED;
 }

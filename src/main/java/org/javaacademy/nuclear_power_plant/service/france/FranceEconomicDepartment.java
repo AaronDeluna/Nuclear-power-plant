@@ -1,18 +1,16 @@
-package org.javaacademy.nuclear_power_plant.service;
+package org.javaacademy.nuclear_power_plant.service.france;
 
-import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.nuclear_power_plant.config.EconomicDepartmentProperty;
+import org.javaacademy.nuclear_power_plant.service.EconomicDepartment;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-import static java.math.BigDecimal.ZERO;
-import static java.math.BigDecimal.valueOf;
+import static java.math.RoundingMode.HALF_UP;
 
 @Component
 @Profile("france")
-@Slf4j
 public class FranceEconomicDepartment extends EconomicDepartment {
     private static final long BILLION_KWH = 1_000_000_000;
 
@@ -33,13 +31,7 @@ public class FranceEconomicDepartment extends EconomicDepartment {
             costPerKilowatt = costPerKilowatt.multiply(reductionRate);
         }
 
-        return totalPrice;
+        return totalPrice.setScale(2, HALF_UP);
     }
-
-
-//Французы рассчитывают доход следующим образом: базовый доход 1 киловатт/часа - 0,5 евро.
-//При каждом новом миллиарде киловатт/часов, стоимость уменьшается на 1%.
-//Пример: за год было произведено 3 млрд киловатт/часов.
-//Формула расчета: 1 000 000 000 * 0,5 + 1 000 000 000 * (0.5 * 0,99) + 1 000 000 000 * (0,5 * 0,99 * 0,99).
 
 }

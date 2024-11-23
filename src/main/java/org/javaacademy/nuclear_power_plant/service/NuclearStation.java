@@ -1,9 +1,8 @@
-package org.javaacademy.nuclear_power_plant.entity;
+package org.javaacademy.nuclear_power_plant.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
-import org.javaacademy.nuclear_power_plant.service.EconomicDepartment;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -54,7 +53,8 @@ public class NuclearStation {
         }
         log.info("Атомная станция закончила работу. За год Выработано {} киловатт/часов", annualEnergyVolume);
         log.info("Количество инцидентов за год: {}", securityDepartment.getCountAccidents());
-        log.info("Доход за год составил: {}, {}", economicDepartment.computeYearIncomes(annualEnergyVolume).toPlainString(),
+        log.info("Доход за год составил: {}, {}",
+                economicDepartment.computeYearIncomes(annualEnergyVolume).toPlainString(),
                 economicDepartment.getProperty().getCurrency()
         );
         securityDepartment.reset();
@@ -70,7 +70,8 @@ public class NuclearStation {
         for (int i = 0; i < year; i++) {
             startYear();
         }
-        log.info("Количество инцидентов за всю работу станции: {}", accidentCountAllTime); 
+
+        log.info("Количество инцидентов за всю работу станции: {}", accidentCountAllTime);
     }
 
     public void incrementAccident(int count) {
