@@ -65,7 +65,7 @@ public class ReactorDepartment {
     /**
      * Увеличивает счетчик запусков на 1.
      */
-    public void addStartLaunchesCount() {
+    private void addStartLaunchesCount() {
         startLaunchesCount++;
     }
 }
