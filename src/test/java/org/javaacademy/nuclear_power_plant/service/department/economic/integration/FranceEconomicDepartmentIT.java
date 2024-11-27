@@ -1,4 +1,4 @@
-package org.javaacademy.nuclear_power_plant.service.department.economic.unit;
+package org.javaacademy.nuclear_power_plant.service.department.economic.integration;
 
 import org.javaacademy.nuclear_power_plant.service.department.economic.france.FranceEconomicDepartment;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ActiveProfiles("france")
 @SpringBootTest
-class FranceEconomicDepartmentTest {
+class FranceEconomicDepartmentIT {
     @Autowired
     private FranceEconomicDepartment economicDepartment;
 

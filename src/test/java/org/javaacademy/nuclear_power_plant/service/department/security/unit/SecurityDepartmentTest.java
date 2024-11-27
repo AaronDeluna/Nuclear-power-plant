@@ -1,19 +1,19 @@
 package org.javaacademy.nuclear_power_plant.service.department.security.unit;
 
+import org.javaacademy.nuclear_power_plant.service.NuclearStation;
 import org.javaacademy.nuclear_power_plant.service.department.security.SecurityDepartment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-@ActiveProfiles("morocco")
 public class SecurityDepartmentTest {
-    @Autowired
-    private SecurityDepartment securityDepartment;
+    private final NuclearStation nuclearStation = Mockito.mock(NuclearStation.class);
+    private final SecurityDepartment securityDepartment = new SecurityDepartment(nuclearStation);
 
     @Test
     @DisplayName("Успешный сброс счетчика инцидентов")
