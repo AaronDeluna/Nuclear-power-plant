@@ -4,8 +4,10 @@ import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
 import org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartment;
 import org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartmentState;
+import org.javaacademy.nuclear_power_plant.service.department.security.SecurityDepartment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
@@ -16,12 +18,9 @@ import static org.javaacademy.nuclear_power_plant.service.department.reactor.Rea
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-@ActiveProfiles("morocco")
 class ReactorDepartmentTest {
-    @Autowired
-    private ReactorDepartment reactorDepartment;
+    private final SecurityDepartment securityDepartment = Mockito.mock(SecurityDepartment.class);
+    private final ReactorDepartment reactorDepartment = new ReactorDepartment(securityDepartment);
 
     @Test
     @DisplayName("Успешно выбросит исключене если реактор уже имеет статус WORK")
