@@ -1,0 +1,5 @@
+app:
+  country: France
+  costPerKilowatt: 0.5
+  reductionRate: 0.99
+  currency: EURO
