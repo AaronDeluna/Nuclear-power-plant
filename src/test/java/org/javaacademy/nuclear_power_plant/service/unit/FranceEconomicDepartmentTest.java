@@ -1,6 +1,5 @@
 package org.javaacademy.nuclear_power_plant.service.unit;
 
-import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.nuclear_power_plant.service.france.FranceEconomicDepartment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ActiveProfiles("france")
 @SpringBootTest
-@Slf4j
 class FranceEconomicDepartmentTest {
     @Autowired
     private FranceEconomicDepartment economicDepartment;

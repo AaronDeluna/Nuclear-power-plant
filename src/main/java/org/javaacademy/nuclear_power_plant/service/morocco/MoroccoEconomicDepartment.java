@@ -27,11 +27,8 @@ public class MoroccoEconomicDepartment extends EconomicDepartment {
         if (countElectricity <= BASE_LIMIT) {
             totalPrice = totalPrice.add(valueOf(countElectricity).multiply(costPerKilowatt));
         } else {
-            long baseElectricity = BASE_LIMIT;
-            long excessElectricity = countElectricity - BASE_LIMIT;
-
-            totalPrice = totalPrice.add(valueOf(baseElectricity).multiply(costPerKilowatt));
-            totalPrice = totalPrice.add(valueOf(excessElectricity).multiply(increasedRate));
+            totalPrice = totalPrice.add(valueOf(BASE_LIMIT).multiply(costPerKilowatt));
+            totalPrice = totalPrice.add(valueOf(countElectricity - BASE_LIMIT).multiply(increasedRate));
         }
 
         return totalPrice;

@@ -1,10 +1,10 @@
 package org.javaacademy.nuclear_power_plant.service;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState.NOT_WORK;
@@ -16,7 +16,6 @@ import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState
 @Getter
 @Setter
 @Component
-@RequiredArgsConstructor
 public class ReactorDepartment {
     private static final String REACTOR_ALREADY_RUNNING_MESSAGE = "Реактор уже работает";
     private static final String REACTOR_ALREADY_STOPPED_MESSAGE = "Реактор уже выключен";
@@ -25,6 +24,10 @@ public class ReactorDepartment {
     private final SecurityDepartment securityDepartment;
     private int startLaunchesCount;
     private ReactorDepartmentState reactorState = NOT_WORK;
+
+    public ReactorDepartment(@Lazy SecurityDepartment securityDepartment) {
+        this.securityDepartment = securityDepartment;
+    }
 
     /**
      * Запускает реактор, выполняет валидацию состояния и увеличивает количество запусков.

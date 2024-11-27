@@ -1,36 +1,27 @@
 package org.javaacademy.nuclear_power_plant.service;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
-
-import static java.math.BigDecimal.ZERO;
 
 /**
  * Атомная станция.
  */
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class NuclearStation {
     private static final int DAYS_IN_YEAR = 365;
-    private BigDecimal totalEnergyProduced = ZERO;
+    @Getter
     private long annualEnergyVolume;
     private final ReactorDepartment reactorDepartment;
     private final SecurityDepartment securityDepartment;
     private final EconomicDepartment economicDepartment;
+    @Getter
     private int accidentCountAllTime;
-
-    public NuclearStation(@Lazy ReactorDepartment reactorDepartment,
-                          @Lazy SecurityDepartment securityDepartment,
-                          EconomicDepartment economicDepartment) {
-        this.reactorDepartment = reactorDepartment;
-        this.securityDepartment = securityDepartment;
-        this.economicDepartment = economicDepartment;
-    }
 
     /**
      * Запускает работу атомной станции на год, добавляя выработанную энергию.
@@ -45,7 +36,7 @@ public class NuclearStation {
 
         for (int i = 0; i < DAYS_IN_YEAR; i++) {
             try {
-                annualEnergyVolume = annualEnergyVolume + reactorDepartment.run();
+                annualEnergyVolume += reactorDepartment.run();
                 reactorDepartment.stop();
             } catch (ReactorWorkException | NuclearFuelIsEmptyException e) {
                 log.error("Внимание! Происходят работы на атомной станции! Электричества нет!");
@@ -70,7 +61,6 @@ public class NuclearStation {
         for (int i = 0; i < year; i++) {
             startYear();
         }
-
         log.info("Количество инцидентов за всю работу станции: {}", accidentCountAllTime);
     }
 
