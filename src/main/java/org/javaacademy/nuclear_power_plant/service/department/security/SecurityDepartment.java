@@ -1,5 +1,6 @@
-package org.javaacademy.nuclear_power_plant.service;
+package org.javaacademy.nuclear_power_plant.service.department.security;
 
+import org.javaacademy.nuclear_power_plant.service.NuclearStation;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 

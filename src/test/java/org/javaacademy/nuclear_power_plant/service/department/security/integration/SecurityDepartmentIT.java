@@ -1,11 +1,10 @@
-package org.javaacademy.nuclear_power_plant.service.integration;
+package org.javaacademy.nuclear_power_plant.service.department.security.integration;
 
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
-import org.javaacademy.nuclear_power_plant.service.ReactorDepartment;
-import org.javaacademy.nuclear_power_plant.service.SecurityDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.security.SecurityDepartment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;

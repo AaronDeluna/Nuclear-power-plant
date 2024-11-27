@@ -1,7 +1,7 @@
-package org.javaacademy.nuclear_power_plant.service.morocco;
+package org.javaacademy.nuclear_power_plant.service.department.economic.morocco;
 
 import org.javaacademy.nuclear_power_plant.config.EconomicDepartmentProperty;
-import org.javaacademy.nuclear_power_plant.service.EconomicDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.economic.EconomicDepartment;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
