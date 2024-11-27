@@ -1,14 +1,15 @@
-package org.javaacademy.nuclear_power_plant.service;
+package org.javaacademy.nuclear_power_plant.service.department.reactor;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
+import org.javaacademy.nuclear_power_plant.service.department.security.SecurityDepartment;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState.NOT_WORK;
-import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState.WORK;
+import static org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartmentState.NOT_WORK;
+import static org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartmentState.WORK;
 
 /**
  * Реакторный цех.

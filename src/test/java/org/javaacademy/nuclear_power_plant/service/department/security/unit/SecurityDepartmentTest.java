@@ -1,6 +1,6 @@
-package org.javaacademy.nuclear_power_plant.service.unit;
+package org.javaacademy.nuclear_power_plant.service.department.security.unit;
 
-import org.javaacademy.nuclear_power_plant.service.SecurityDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.security.SecurityDepartment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package org.javaacademy.nuclear_power_plant.service.unit;
+package org.javaacademy.nuclear_power_plant.service.department.economic.unit;
 
-import org.javaacademy.nuclear_power_plant.service.morocco.MoroccoEconomicDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.economic.morocco.MoroccoEconomicDepartment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

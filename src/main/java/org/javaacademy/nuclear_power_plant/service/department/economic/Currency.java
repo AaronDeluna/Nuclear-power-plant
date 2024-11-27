@@ -1,4 +1,4 @@
-package org.javaacademy.nuclear_power_plant.service;
+package org.javaacademy.nuclear_power_plant.service.department.economic;
 
 import lombok.Getter;
 

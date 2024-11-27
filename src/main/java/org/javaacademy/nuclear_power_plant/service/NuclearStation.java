@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
+import org.javaacademy.nuclear_power_plant.service.department.economic.EconomicDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.security.SecurityDepartment;
 import org.springframework.stereotype.Component;
 
 /**

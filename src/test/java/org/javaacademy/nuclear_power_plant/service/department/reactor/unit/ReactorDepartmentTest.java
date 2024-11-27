@@ -1,9 +1,9 @@
-package org.javaacademy.nuclear_power_plant.service.unit;
+package org.javaacademy.nuclear_power_plant.service.department.reactor.unit;
 
 import org.javaacademy.nuclear_power_plant.exception.NuclearFuelIsEmptyException;
 import org.javaacademy.nuclear_power_plant.exception.ReactorWorkException;
-import org.javaacademy.nuclear_power_plant.service.ReactorDepartment;
-import org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState;
+import org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartment;
+import org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartmentState;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
-import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState.NOT_WORK;
-import static org.javaacademy.nuclear_power_plant.service.ReactorDepartmentState.WORK;
+import static org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartmentState.NOT_WORK;
+import static org.javaacademy.nuclear_power_plant.service.department.reactor.ReactorDepartmentState.WORK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
